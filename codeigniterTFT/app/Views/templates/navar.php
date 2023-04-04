@@ -47,8 +47,8 @@ color: green;
 <body>
 
 <ul>
-  <li><a href="/mood/create">create</a></li>
-  <li><a href="/mood">moods</a></li>
+  <li><a href="/tft/create">create</a></li>
+  <li><a href="/tft">tfts</a></li>
   <li><a href="/logout">logout</a></li>
 </ul>
 

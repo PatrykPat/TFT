@@ -2,7 +2,7 @@
 
 namespace Config;
 
-use App\Controllers\MoodController;
+use App\Controllers\tftController;
 
 
 // Create a new instance of our RouteCollection class.
@@ -33,11 +33,12 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->match(['get', 'post'], 'mood/create', [MoodController::class, 'create']);
-$routes->get('/', 'MoodController::index');
-$routes->get('mood', [MoodController::class, 'index']);
+
+//$routes->match(['get', 'post'], 'tft/create', [tftController::class, 'create']);
+$routes->get('/', 'tftController::index');
+$routes->get('tft', [tftController::class, 'index']);
 $routes->get('/', 'Home::index');
-$routes->get('mood/(:segment)', [MoodController::class, 'view']);
+$routes->get('tft/(:segment)', [tftController::class, 'view']);
 
 service('auth')->routes($routes);
 /*

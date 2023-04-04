@@ -6,38 +6,38 @@ namespace App\Controllers;
 use CodeIgniter\Exceptions\PageNotFoundException;
 use App\Models\NewsModel;
 
-class MoodController extends BaseController
+class tftController extends BaseController
 {
     public function index()
     {
 
-        $model = model(MoodModel::class);
+        $model = model(tftModel::class);
 
         $data = [
-            'mood'  => $model->getMood(),
-            'title' => 'Jou moods',
+            'tft'  => $model->gettft(),
+            'title' => 'Jou tfts',
         ];
 
         return view('templates/header', $data)
-            . view('mood/index')
+            . view('tft/index')
             . view('templates/footer'); 
       
     }
 
     public function view($slug = null)
     {
-        $model = model(MoodModel::class);
+        $model = model(tftModel::class);
 
-        $data['news'] = $model->getMood($slug);
+        $data['news'] = $model->gettft($slug);
 
-        if (empty($data['mood'])) {
-            throw new PageNotFoundException('Cannot find the news item: ' . $mood);
+        if (empty($data['tft'])) {
+            throw new PageNotFoundException('Cannot find the news item: ' . $tft);
         }
 
         $data['title'] = $data['news']['title'];
 
         return view('templates/header', $data)
-            . view('mood/view')
+            . view('tft/view')
             . view('templates/footer');
     }
     public function create()
@@ -47,37 +47,37 @@ class MoodController extends BaseController
         // Checks whether the form is submitted.
         if (! $this->request->is('post')) {
             // The form is not submitted, so returns the form.
-            return view('templates/header', ['title' => 'Create a mood item'])
-                . view('mood/create')
+            return view('templates/header', ['title' => 'Create a tft item'])
+                . view('tft/create')
                 . view('templates/footer');
         }
 
-        $post = $this->request->getPost(['datum', 'mood','plek']);
+        $post = $this->request->getPost(['datum', 'tft','plek']);
 
         // Checks whether the submitted data passed the validation rules.
         if (! $this->validateData($post, [
         //     'datum' => 'required|max_length[255]|min_length[8]',
-        //     'mood'  => 'required|max_length[5000]|min_length[1]',
+        //     'tft'  => 'required|max_length[5000]|min_length[1]',
             'plek'  => 'required|max_length[5000]|min_length[2]'
         ])) {
             // The validation fails, so returns the form.
-        //     return view('templates/header', ['title' => 'Create a mood item'])
-        //         . view('mood/create')
+        //     return view('templates/header', ['title' => 'Create a tft item'])
+        //         . view('tft/create')
         //         . view('templates/footer');
         }
 
-        $model = model(MoodModel::class);
+        $model = model(tftModel::class);
         $user = auth()->user()->id;
 
         $model->save([
             'datum' => $post['datum'],
             'user'  => $user,
-            'mood'  => $post['mood'],
+            'tft'  => $post['tft'],
             'plek' => $post['plek']
         ]);
 
-        return view('templates/header', ['title' => 'Create a mood item'])
-            . view('mood/success')
+        return view('templates/header', ['title' => 'Create a tft item'])
+            . view('tft/success')
             . view('templates/footer');
     }
 }
