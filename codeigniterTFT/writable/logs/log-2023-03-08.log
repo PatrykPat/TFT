@@ -1,0 +1,97 @@
+ERROR - 2023-03-08 12:36:56 --> Error connecting to the database: mysqli_sql_exception: Kan geen verbinding maken omdat de doelcomputer de verbinding actief heeft geweigerd in C:\xampp\htdocs\codeingnite\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:174
+Stack trace:
+#0 C:\xampp\htdocs\codeingnite\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(174): mysqli->real_connect('localhost', 'root', '', 'ci4', 3306, '', 0)
+#1 C:\xampp\htdocs\codeingnite\vendor\codeigniter4\framework\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\codeingnite\vendor\codeigniter4\framework\system\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\codeingnite\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1602): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\codeingnite\vendor\codeigniter4\settings\src\Handlers\DatabaseHandler.php(163): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\codeingnite\vendor\codeigniter4\settings\src\Handlers\DatabaseHandler.php(41): CodeIgniter\Settings\Handlers\DatabaseHandler->hydrate(NULL)
+#6 C:\xampp\htdocs\codeingnite\vendor\codeigniter4\settings\src\Settings.php(59): CodeIgniter\Settings\Handlers\DatabaseHandler->has('Config\\Auth', 'sessionConfig', NULL)
+#7 C:\xampp\htdocs\codeingnite\vendor\codeigniter4\settings\src\Helpers\setting_helper.php(21): CodeIgniter\Settings\Settings->get('Auth.sessionCon...')
+#8 C:\xampp\htdocs\codeingnite\vendor\codeigniter4\shield\src\Authentication\Authenticators\Session.php(669): setting('Auth.sessionCon...')
+#9 C:\xampp\htdocs\codeingnite\vendor\codeigniter4\shield\src\Authentication\Authenticators\Session.php(687): CodeIgniter\Shield\Authentication\Authenticators\Session->getSessionUserInfo()
+#10 C:\xampp\htdocs\codeingnite\vendor\codeigniter4\shield\src\Authentication\Authenticators\Session.php(374): CodeIgniter\Shield\Authentication\Authenticators\Session->getSessionKey('id')
+#11 C:\xampp\htdocs\codeingnite\vendor\codeigniter4\shield\src\Authentication\Authenticators\Session.php(358): CodeIgniter\Shield\Authentication\Authenticators\Session->checkUserState()
+#12 C:\xampp\htdocs\codeingnite\vendor\codeigniter4\shield\src\Filters\SessionAuth.php(47): CodeIgniter\Shield\Authentication\Authenticators\Session->loggedIn()
+#13 C:\xampp\htdocs\codeingnite\vendor\codeigniter4\framework\system\Filters\Filters.php(173): CodeIgniter\Shield\Filters\SessionAuth->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#14 C:\xampp\htdocs\codeingnite\vendor\codeigniter4\framework\system\CodeIgniter.php(473): CodeIgniter\Filters\Filters->run('/', 'before')
+#15 C:\xampp\htdocs\codeingnite\vendor\codeigniter4\framework\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#16 C:\xampp\htdocs\codeingnite\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#17 C:\xampp\htdocs\codeingnite\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#18 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Kan geen verbinding maken omdat de doelcomputer de verbinding actief heeft geweigerd in C:\xampp\htdocs\codeingnite\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:218
+Stack trace:
+#0 C:\xampp\htdocs\codeingnite\vendor\codeigniter4\framework\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\codeingnite\vendor\codeigniter4\framework\system\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\codeingnite\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1602): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\codeingnite\vendor\codeigniter4\settings\src\Handlers\DatabaseHandler.php(163): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\codeingnite\vendor\codeigniter4\settings\src\Handlers\DatabaseHandler.php(41): CodeIgniter\Settings\Handlers\DatabaseHandler->hydrate(NULL)
+#5 C:\xampp\htdocs\codeingnite\vendor\codeigniter4\settings\src\Settings.php(59): CodeIgniter\Settings\Handlers\DatabaseHandler->has('Config\\Auth', 'sessionConfig', NULL)
+#6 C:\xampp\htdocs\codeingnite\vendor\codeigniter4\settings\src\Helpers\setting_helper.php(21): CodeIgniter\Settings\Settings->get('Auth.sessionCon...')
+#7 C:\xampp\htdocs\codeingnite\vendor\codeigniter4\shield\src\Authentication\Authenticators\Session.php(669): setting('Auth.sessionCon...')
+#8 C:\xampp\htdocs\codeingnite\vendor\codeigniter4\shield\src\Authentication\Authenticators\Session.php(687): CodeIgniter\Shield\Authentication\Authenticators\Session->getSessionUserInfo()
+#9 C:\xampp\htdocs\codeingnite\vendor\codeigniter4\shield\src\Authentication\Authenticators\Session.php(374): CodeIgniter\Shield\Authentication\Authenticators\Session->getSessionKey('id')
+#10 C:\xampp\htdocs\codeingnite\vendor\codeigniter4\shield\src\Authentication\Authenticators\Session.php(358): CodeIgniter\Shield\Authentication\Authenticators\Session->checkUserState()
+#11 C:\xampp\htdocs\codeingnite\vendor\codeigniter4\shield\src\Filters\SessionAuth.php(47): CodeIgniter\Shield\Authentication\Authenticators\Session->loggedIn()
+#12 C:\xampp\htdocs\codeingnite\vendor\codeigniter4\framework\system\Filters\Filters.php(173): CodeIgniter\Shield\Filters\SessionAuth->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#13 C:\xampp\htdocs\codeingnite\vendor\codeigniter4\framework\system\CodeIgniter.php(473): CodeIgniter\Filters\Filters->run('/', 'before')
+#14 C:\xampp\htdocs\codeingnite\vendor\codeigniter4\framework\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#15 C:\xampp\htdocs\codeingnite\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#16 C:\xampp\htdocs\codeingnite\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#17 {main}
+CRITICAL - 2023-03-08 12:36:56 --> Unable to connect to the database.
+Main connection [MySQLi]: Kan geen verbinding maken omdat de doelcomputer de verbinding actief heeft geweigerd
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1602): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `settings`
+WHERE `context` IS NULL', [], false)
+ 3 VENDORPATH\codeigniter4\settings\src\Handlers\DatabaseHandler.php(163): CodeIgniter\Database\BaseBuilder->get()
+ 4 VENDORPATH\codeigniter4\settings\src\Handlers\DatabaseHandler.php(41): CodeIgniter\Settings\Handlers\DatabaseHandler->hydrate(null)
+ 5 VENDORPATH\codeigniter4\settings\src\Settings.php(59): CodeIgniter\Settings\Handlers\DatabaseHandler->has('Config\\Auth', 'sessionConfig', null)
+ 6 VENDORPATH\codeigniter4\settings\src\Helpers\setting_helper.php(21): CodeIgniter\Settings\Settings->get('Auth.sessionConfig')
+ 7 VENDORPATH\codeigniter4\shield\src\Authentication\Authenticators\Session.php(669): setting('Auth.sessionConfig')
+ 8 VENDORPATH\codeigniter4\shield\src\Authentication\Authenticators\Session.php(687): CodeIgniter\Shield\Authentication\Authenticators\Session->getSessionUserInfo()
+ 9 VENDORPATH\codeigniter4\shield\src\Authentication\Authenticators\Session.php(374): CodeIgniter\Shield\Authentication\Authenticators\Session->getSessionKey('id')
+10 VENDORPATH\codeigniter4\shield\src\Authentication\Authenticators\Session.php(358): CodeIgniter\Shield\Authentication\Authenticators\Session->checkUserState()
+11 VENDORPATH\codeigniter4\shield\src\Filters\SessionAuth.php(47): CodeIgniter\Shield\Authentication\Authenticators\Session->loggedIn()
+12 SYSTEMPATH\Filters\Filters.php(173): CodeIgniter\Shield\Filters\SessionAuth->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+13 SYSTEMPATH\CodeIgniter.php(473): CodeIgniter\Filters\Filters->run('C:\\', 'before')
+14 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+16 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2023-03-08 12:37:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-08 12:37:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-08 12:37:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-08 12:37:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-08 12:37:14 --> CSRF token verified.
+INFO - 2023-03-08 12:37:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-08 12:37:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-08 12:37:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-08 12:37:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-08 12:37:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-08 12:37:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-03-08 12:37:38 --> Undefined variable $mood
+in APPPATH\Controllers\MoodController.php on line 27.
+ 1 APPPATH\Controllers\MoodController.php(27): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $mood', 'APPPATH\\Controllers\\MoodController.php', 27)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\MoodController->view('index.css')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MoodController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2023-03-08 12:37:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-08 12:37:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-08 12:37:48 --> CSRF token verified.
+INFO - 2023-03-08 12:37:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-03-08 12:37:49 --> Undefined variable $mood
+in APPPATH\Controllers\MoodController.php on line 27.
+ 1 APPPATH\Controllers\MoodController.php(27): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $mood', 'APPPATH\\Controllers\\MoodController.php', 27)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\MoodController->view('index.css')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MoodController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2023-03-08 12:37:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-08 12:37:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-08 12:37:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
