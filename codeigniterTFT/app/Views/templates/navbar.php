@@ -45,12 +45,16 @@ color: green;
 </style>
 </head>
 <body>
+  <nav>
+    <ul>
+      <li><a href="/tft">Home</a></li>
+      <li><a href="/shop">shop</a></li>
+      <li><a href="/lessen">lessen</a></li>
+      <li><a href="/kalender">kalender</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+  </nav>
 
-<ul>
-  <li><a href="/tft/create">create</a></li>
-  <li><a href="/tft">tfts</a></li>
-  <li><a href="/logout">logout</a></li>
-</ul>
 
 </body>
 </html>

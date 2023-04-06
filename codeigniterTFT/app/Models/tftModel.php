@@ -19,4 +19,14 @@ class tftModel extends Model
 
         return $selection->getResult();
     }
+    public function getlessen()
+    {
+        $user = auth()->user();
+        $db = db_connect();
+        $sql = "SELECT * FROM `lessen` ORDER BY datum ASC;";
+
+        $selection =$db->query($sql);
+
+        return $selection->getResult();
+    }
 }

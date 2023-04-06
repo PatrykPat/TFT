@@ -3,5 +3,5 @@
   
 </head>
 <body>
-<?php include "navar.php";?>
+<?php include "navbar.php";?>
 

@@ -1,87 +1,173 @@
-.tft{
-    margin-top:5%;
-    border:1px solid white;
-    display:inline-grid;
-    width:19%;
-    /* background-image: url("<?php "http://".$_SERVER['HTTP_HOST']?>///llimages/background.jpg");  */
- background-size: cover;
-}
-h3{
-    color:white;
-}
-p{
-    color:white;
-}
-/*@keyframes bgcolor {
-0% {
-    background-color: #45a3e5
-}
-
-30% {
-    background-color: #66bf39
-}
-
-60% {
-    background-color: #eb670f
-}
-
-90% {
-    background-color: #f35
-}
-
-100% {
-    background-color: #864cbf
-}
-} */
-.debug-view, .show-view{
-border:none !important;
-}
-#toolbarContainer{
-visibility:hidden;
-}
-.debug-view-path{
-visibility:hidden;
-}
-canvas{
-position:absolute;
-margin-left:90%;
-}
-body {
--webkit-animation: bgcolor 20s infinite;
-animation: bgcolor 10s infinite;
--webkit-animation-direction: alternate;
-animation-direction: alternate;
-background-image: url("../images/walter.jpg");
-background-size: cover;
-}
-em{
-visibility:hidden;
-}
-
-.div{
-    /* position: absolute; */
-    margin-top: -50px;
-}
-ul {
-    list-style-type: none;
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    overflow: hidden;
-    background-color: #333;
   }
   
-  li {
-    float: left;
+  body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
   }
   
-  li a {
-    display: block;
+  header {
+    background-color: orange;
+    padding: 20px;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+  }
+  
+  nav ul li {
+    margin-right: 20px;
+  }
+  
+  nav ul li a {
     color: white;
-    text-align: center;
-    padding: 14px 16px;
     text-decoration: none;
   }
   
-  li a:hover {
-    background-color: #111;
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
   }
+  
+  .hero {
+    background-image: url(hero.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .hero h1 {
+    font-size: 50px;
+    color: white;
+    text-shadow: 2px 2px 4px black;
+  }
+  
+  .hero p {
+    font-size: 24px;
+    color: white;
+    text-shadow: 2px 2px 4px black;
+    margin-bottom: 20px;
+  }
+  
+  .hero button {
+    background-color: white;
+    color: orange;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    }
+    
+    .hero button:hover {
+    background-color: #ff6600;
+    color: white;
+    }
+    
+    .about {
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    }
+    
+    .about h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    }
+    
+    .about p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    }
+    
+    .about img {
+    width: 100%;
+    max-width: 400px;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    .services {
+    margin-top: 50px;
+    text-align: center;
+    }
+    
+    .services h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    }
+    
+    .services ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    }
+    
+    .services li {
+    font-size: 24px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    }
+    
+    .contact {
+    margin-top: 50px;
+    text-align: center;
+    }
+    
+    .contact h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    }
+    
+    .contact form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    }
+    
+    .contact label {
+    font-size: 24px;
+    margin-bottom: 10px;
+    }
+    
+    .contact input,
+    .contact textarea {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    }
+    
+    .contact button {
+    background-color: orange;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    }
+    
+    .contact button:hover {
+    background-color: #ff6600;
+    }

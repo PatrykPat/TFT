@@ -184,6 +184,9 @@ class Auth extends ShieldAuth
      * --------------------------------------------------------------------
      * If true, will always update the `last_active` datetime for the
      * logged in user on every page request.
+     * This feature only works when session/tokens filter is active.
+     *
+     * @see https://codeigniter4.github.io/shield/install/#protect-all-pages for set filters.
      */
     public bool $recordActiveDate = true;
 
@@ -356,6 +359,16 @@ class Auth extends ShieldAuth
      * Valid range is between 4 - 31.
      */
     public int $hashCost = 10;
+
+    /**
+     * If you need to support passwords saved in versions prior to Shield v1.0.0-beta.4.
+     * set this to true.
+     *
+     * See https://github.com/codeigniter4/shield/security/advisories/GHSA-c5vj-f36q-p9vg
+     *
+     * @deprecated This is only for backward compatibility.
+     */
+    public bool $supportOldDangerousPassword = false;
 
     /**
      * ////////////////////////////////////////////////////////////////////

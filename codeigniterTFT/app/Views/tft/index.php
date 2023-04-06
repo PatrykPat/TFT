@@ -6,33 +6,43 @@
 
 </div>
 
-<?php if (!empty($tft) && is_array($tft)): ?>
-    <?php for ($id = 0; $id < count($tft); $id++): ?>
-        <div class='tft'>
-            <div class="main">
-
-                <!-- Controleren of er een tft is ingevuld -->
-                <?php 
-                $sql= "DELETE FROM `tft` WHERE `id` = '$id' ";
-                
-                if($tft[$id]->datum == null): ?>
-                    <?php
-                    echo ("<a href=/tft/create/".$tft[$id]->id."> vul de ontbrekende gegevens in</a>");
-                //    echo '<a href="admin.php?action=delete&id=$id">Delete this!</a>';
-                    ?>
-                <?php endif; ?>
-
-                <!-- Controleren of er genoeg tfts zijn om het gemiddelde te berekenen -->
-                    
-            </div>
-                <h3><?= esc($tft[$id]->datum) ?></h3>
-        </div>
-    <?php endfor; ?>
-
-<?php else: ?>
-
-    <h3>No tft</h3>
-
-    <p>Unable to find any tft for you.</p>
-
-<?php endif ?>
+<body>
+  <main>
+    <section class="hero">
+      <h1>Welcome to our Sporty Website</h1>
+      <p>Join our gym and get fit today!</p>
+      <button>Join Now</button>
+    </section>
+    
+    <section class="about">
+      <h2>About Us</h2>
+      <p>We are a state-of-the-art gym with top-notch facilities and expert trainers.</p>
+      <img src="gym.jpg" alt="Gym">
+    </section>
+    
+    <section class="services">
+      <h2>Our Services</h2>
+      <ul>
+        <li>Cardio equipment</li>
+        <li>Strength training equipment</li>
+        <li>Group fitness classes</li>
+        <li>Personal training</li>
+      </ul>
+    </section>
+    
+    <section class="contact">
+      <h2>Contact Us</h2>
+      <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+        <label for="message">Message:</label>
+        <textarea id="message" name="message"></textarea>
+        <button>Send</button>
+      </form>
+      
+    </section>
+  </main>
+  
+</body>
