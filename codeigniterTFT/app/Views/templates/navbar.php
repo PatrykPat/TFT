@@ -4,7 +4,7 @@
 <style>
 nav {
 width: 100%;
-background-color: #080808;
+background-color: #FB6B21;
 height: 50px;
 position: fixed;
 border-bottom: 2px solid #F0AB00;
@@ -18,7 +18,7 @@ overflow: hidden;
 }
 
 li {
-float: left;
+float: right;
 }
 
 li a {

@@ -30,7 +30,7 @@ class User extends Entity
     use HasAccessTokens;
     use Resettable;
     use Activatable;
-    use Bannable;
+    // use Bannable;
 
     /**
      * @var UserIdentity[]|null
