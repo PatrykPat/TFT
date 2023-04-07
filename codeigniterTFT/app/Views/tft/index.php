@@ -1,7 +1,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/style/index.css">
 </head>
-<h2>Uw stemming</h2>
+<h2>.</h2>
 <div class="div">
 
 </div>

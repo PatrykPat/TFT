@@ -2,12 +2,51 @@
 <html>
 <head>
 <style>
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: orange;
+  padding: 20px;
+  right: 0;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+}
+
+nav ul li {
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
 nav {
 width: 100%;
-background-color: #FB6B21;
-height: 50px;
-position: fixed;
+background: rgb(251,107,33);
+background: linear-gradient(180deg, rgba(251,107,33,1) 0%, rgba(251,142,80,1) 72%);
+height: 70px;
 border-bottom: 2px solid #F0AB00;
+float: right;
 }
 
 ul {
@@ -27,11 +66,10 @@ color: #F0AB00;
 font-size: 18px;
 font-weight: bold;
 text-align: center;
-padding: 20px 16px;
+padding: 0px;
 text-decoration: none;
 text-transform: uppercase;
 letter-spacing: 2px;
-border-right: 2px solid #F0AB00;
 }
 
 li:last-child a {
@@ -47,11 +85,11 @@ color: green;
 <body>
   <nav>
     <ul>
-      <li><a href="/tft">Home</a></li>
+      <li><a href="/tft"><img src="images/logo.jpg" alt="logo" width="70px" height="70px"></li>
       <li><a href="/shop">shop</a></li>
       <li><a href="/lessen">lessen</a></li>
       <li><a href="/kalender">kalender</a></li>
-      <li><a href="/contact">Contact</a></li>
+      <li style="float:right"><a class="active" href="#about">About</a></li>
     </ul>
   </nav>
 

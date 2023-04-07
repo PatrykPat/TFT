@@ -147,14 +147,14 @@ class Session implements AuthenticatorInterface
         /** @var User $user */
         $user = $result->extraInfo();
 
-        if ($user->isBanned()) {
-            $this->user = null;
+        // if ($user->isBanned()) {
+        //     $this->user = null;
 
-            return new Result([
-                'success' => false,
-                'reason'  => $user->getBanMessage() ?? lang('Auth.bannedUser'),
-            ]);
-        }
+        //     return new Result([
+        //         'success' => false,
+        //         'reason'  => $user->getBanMessage() ?? lang('Auth.bannedUser'),
+        //     ]);
+        // }
 
         $this->user = $user;
 
