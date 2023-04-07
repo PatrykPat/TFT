@@ -9,15 +9,12 @@ body {
 }
 
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 header {
-  background-color: orange;
   padding: 20px;
-  right: 0;
 }
 
 nav ul {
@@ -85,11 +82,9 @@ color: green;
 <body>
   <nav>
     <ul>
-      <li><a href="/tft"><img src="images/logo.jpg" alt="logo" width="70px" height="70px"></li>
-      <li><a href="/shop">shop</a></li>
-      <li><a href="/lessen">lessen</a></li>
-      <li><a href="/kalender">kalender</a></li>
-      <li style="float:right"><a class="active" href="#about">About</a></li>
+      <li><a href="/tft"><img src="images/logo.jpg" alt="logo" width="70px" height="70px"></a></li>
+      <li><a href="/create">Log In</a></li>
+      <li><a href="/kalender"><img src="images/kalender.png" alt="logo" width="70px" height="70px"></a></li>
     </ul>
   </nav>
 
