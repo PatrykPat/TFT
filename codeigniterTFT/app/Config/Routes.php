@@ -34,7 +34,7 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 
-$routes->match(['get', 'post'], 'tft/create', [tftController::class, 'create']);
+$routes->match(['get', 'post'], '/create', [tftController::class, 'create']);
 $routes->get('/', 'tftController::index');
 $routes->get('tft', [tftController::class, 'index']);
 $routes->get('/', 'Home::index');
@@ -42,8 +42,9 @@ $routes->get('/', 'Home::index');
 $routes->get('tft', [tftController::class, 'index']);
 $routes->get('/shop', [tftController::class, 'shop']);
 $routes->get('/lessen', [tftController::class, 'lessen']);
-$routes->get('/kalender', [tftController::class, 'kalender']);
+$routes->get('/rooster', [tftController::class, 'rooster']);
 $routes->get('/contact', [tftController::class, 'contact']);
+$routes->get('/admin', [tftController::class, 'admin']);
 
 service('auth')->routes($routes);
 /*

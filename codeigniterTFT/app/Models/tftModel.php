@@ -28,5 +28,5 @@ class tftModel extends Model
         $selection =$db->query($sql);
 
         return $selection->getResult();
-    }
+    } 
 }
