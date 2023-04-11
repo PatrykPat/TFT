@@ -206,7 +206,7 @@
                 </a>
             </li>
             <li class="menu-toggle">
-                <button onclick="toggleMenu();">&#9776;</button>
+                <!-- <button onclick="toggleMenu();">&#9776;</button> -->
             </li>
             <li class="menu-item hidden"><a href="#">Home</a></li>
             <li class="menu-item hidden"><a href="https://codeigniter4.github.io/userguide/" target="_blank">Docs</a>

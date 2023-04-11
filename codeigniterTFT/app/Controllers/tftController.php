@@ -8,6 +8,7 @@ use App\Models\NewsModel;
 
 class tftController extends BaseController
 {
+    protected $db;
     public function index()
     {
 
@@ -39,7 +40,7 @@ class tftController extends BaseController
         $model = model(tftModel::class);
 
         $data = [
-            'lessen' => $model->getlessen()
+            'lessen' => $model->get_lessen()
         ];
     return view('templates/header', $data)
         . view('tft/lessen')
@@ -62,20 +63,38 @@ class tftController extends BaseController
         . view('tft/contact')
         . view('templates/footer');
     }
+
     public function rooster()
-    {
-        // Retrieve lessons from the database
-        $model = model(tftModel::class);
-        $lessons = $lessonModel->findAll();
+{
+    $db = \Config\Database::connect();
+    $query = $db->query('SELECT * FROM lessen');
+    $rooster = $query->getResult();
+    // Get the current week and year
+    $week_number = isset($_GET['week']) ? $_GET['week'] : date('W');
+    $year = isset($_GET['year']) ? $_GET['year'] : date('Y');
 
-        // Pass lessons to the view
-        $data['lessons'] = $lessons;
+    // Set the first day of the week to Monday
+    $first_day_of_week = strtotime($year . 'W' . str_pad($week_number, 2, '0', STR_PAD_LEFT) . '1');
 
-        // Load the view
-    return view('templates/header', $data)
+    // Create an array of dates for the current week
+    $date_array = [];
+    for ($i = 0; $i < 7; $i++) {
+        $date_array[] = date('Y-m-d', strtotime('+' . $i . ' days', $first_day_of_week));
+    }
+
+    // Fetch data from the database
+    $rooster = $this->db->query("SELECT * FROM lessen")->getResult();
+
+    // Pass the data and date array to the view
+    return view('templates/header')
         . view('tft/rooster')
         . view('templates/footer');
-    }
+    return view('templates/header', [
+        'rooster' => $rooster,
+        'date_array' => $date_array,
+    ]);
+}
+        
     public function create()
     {
         

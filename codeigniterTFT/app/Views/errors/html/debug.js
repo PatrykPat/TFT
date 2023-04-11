@@ -23,7 +23,7 @@ function init()
 
     for (var id in tabLinks)
     {
-        tabLinks[id].onclick = showTab;
+        //tabLinks[id].onclick = showTab;
         tabLinks[id].onfocus = function () {
             this.blur()
         };

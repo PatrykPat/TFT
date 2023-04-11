@@ -8,7 +8,6 @@ class tftModel extends Model
 {
     protected $table = 'lessen';
     protected $allowedFields = ['idLessen', 'tijd','datum', 'maxdeelnemers', 'instructeur', 'SoortenLessen', 'maxdeelnemers'];
-
     public function gettft()
     {
         $user = auth()->user();
@@ -19,7 +18,7 @@ class tftModel extends Model
 
         return $selection->getResult();
     }
-    public function getlessen()
+    public function get_rooster()
     {
         $user = auth()->user();
         $db = db_connect();
@@ -28,5 +27,19 @@ class tftModel extends Model
         $selection =$db->query($sql);
 
         return $selection->getResult();
+    }
+    public function get_lessen()
+    {
+        $user = auth()->user();
+        $db = db_connect();
+        $sql = "SELECT * FROM `lessen` ORDER BY datum ASC;";
+
+        $selection =$db->query($sql);
+        var_dump($sql);
+        var_dump($selection);
+
+        return $selection->getResult();
+        
     } 
+
 }

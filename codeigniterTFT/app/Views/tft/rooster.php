@@ -23,69 +23,57 @@
   }
 </style>
 <body>
-    <table>
-  <thead>
+<?php
+date_default_timezone_set('Europe/Amsterdam');
+
+// Get the current week and year
+$week_number = isset($_GET['week']) ? $_GET['week'] : date('W');
+$year = isset($_GET['year']) ? $_GET['year'] : date('Y');
+
+// Set the first day of the week to Monday
+$first_day_of_week = strtotime($year . 'W' . str_pad($week_number, 2, '0', STR_PAD_LEFT) . '1');
+
+// Create an array of dates for the current week
+$date_array = [];
+for ($i = 0; $i < 7; $i++) {
+    $date_array[] = date('Y-m-d', strtotime('+' . $i . ' days', $first_day_of_week));
+}
+?>
+
+<table>
     <tr>
-      <th>Time</th>
-      <th>Monday</th>
-      <th>Tuesday</th>
-      <th>Wednesday</th>
-      <th>Thursday</th>
-      <th>Friday</th>
+        <th></th>
+        <?php foreach ($date_array as $date): ?>
+            <th><?php echo date('Y-m-d', strtotime($date)); ?></th>
+        <?php endforeach; ?>
     </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>09:00</td>
-      <?php $lesson = get_lesson(9, 1); ?>
-      <?php if ($lesson) { ?>
-        <td><?= $lesson ?></td>
-      <?php } else { ?>
-        <td>&nbsp;</td>
-      <?php } ?>
-      <?php $lesson = get_lesson(9, 2); ?>
-      <?php if ($lesson) { ?>
-        <td><?= $lesson ?></td>
-      <?php } else { ?>
-        <td>&nbsp;</td>
-      <?php } ?>
-      <?php $lesson = get_lesson(9, 3); ?>
-      <?php if ($lesson) { ?>
-        <td><?= $lesson ?></td>
-      <?php } else { ?>
-        <td>&nbsp;</td>
-      <?php } ?>
-      <?php $lesson = get_lesson(9, 4); ?>
-      <?php if ($lesson) { ?>
-        <td><?= $lesson ?></td>
-      <?php } else { ?>
-        <td>&nbsp;</td>
-      <?php } ?>
-      <?php $lesson = get_lesson(9, 5); ?>
-      <?php if ($lesson) { ?>
-        <td><?= $lesson ?></td>
-      <?php } else { ?>
-        <td>&nbsp;</td>
-      <?php } ?>
-    </tr>
-    <!-- repeat the above row for each time slot from 10:00 to 17:00 -->
-  </tbody>
+    <?php for ($i = 0; $i <= 23; $i++): ?>
+        <tr>
+            <td><?php echo $i.':00'; ?></td>
+            <?php for ($j = 0; $j < 7; $j++): ?>
+                <?php $is_meeting = false; ?>
+                <?php $date = ''; ?>
+                <?php if (!empty($date_array) && array_key_exists($j, $date_array)): ?>
+                    <?php $date = $date_array[$j]; ?>
+                <?php endif; ?>
+                <?php foreach ($rooster as $row): ?>
+                    <?php
+                        $start_time = strtotime($row->tijd);
+                        $end_time = strtotime('1 hour', $start_time);
+                        if (date('H', $start_time) == $i && date('Y-m-d', $start_time) == $date) {
+                            $is_meeting = true;
+                            break;
+                        }
+                    ?>
+                <?php endforeach; ?>
+                <?php if ($is_meeting): ?>
+                    <td style="background-color: orange;"><?php echo $row->datum; ?></td>
+                <?php else: ?>
+                    <td style="background-color: green;"></td>
+                <?php endif; ?>
+            <?php endfor; ?>
+        </tr>
+    <?php endfor; ?>
 </table>
-        <tbody>
-            <?php foreach ($lessons as $lesson): ?>
-                <?php $time = $lesson['tijd']; ?>
-                <tr>
-                    <td><?= $time ?></td>
-                    <td><?= ($lesson['dag'] == 'Maandag') ? $lesson['Instructeur'] : '' ?></td>
-                    <td><?= ($lesson['dag'] == 'Dinsdag') ? $lesson['Instructeur'] : '' ?></td>
-                    <td><?= ($lesson['dag'] == 'Woensdag') ? $lesson['Instructeur'] : '' ?></td>
-                    <td><?= ($lesson['dag'] == 'Donderdag') ? $lesson['Instructeur'] : '' ?></td>
-                    <td><?= ($lesson['dag'] == 'Vrijdag') ? $lesson['Instructeur'] : '' ?></td>
-                    <td><?= ($lesson['dag'] == 'Zaterdag') ? $lesson['Instructeur'] : '' ?></td>
-                    <td><?= ($lesson['dag'] == 'Zondag') ? $lesson['Instructeur'] : '' ?></td>
-                </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
 </body>
 </html>

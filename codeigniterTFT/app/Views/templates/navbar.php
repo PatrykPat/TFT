@@ -38,19 +38,10 @@ main {
 }
 
 nav {
-<<<<<<< Updated upstream
-width: 100%;
-background: rgb(251,107,33);
-background: linear-gradient(180deg, rgba(251,107,33,1) 0%, rgba(251,142,80,1) 72%);
-height: 70px;
-border-bottom: 2px solid #F0AB00;
-float: right;
-=======
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: linear-gradient(to bottom, rgb(250, 100, 33), rgb(250, 150, 80));
->>>>>>> Stashed changes
 }
 
 nav ul {
@@ -60,26 +51,6 @@ nav ul {
   padding: 0;
 }
 
-<<<<<<< Updated upstream
-li {
-float: right;
-}
-
-li a {
-display: block;
-color: #F0AB00;
-font-size: 18px;
-font-weight: bold;
-text-align: center;
-padding: 0px;
-text-decoration: none;
-text-transform: uppercase;
-letter-spacing: 2px;
-}
-
-li:last-child a {
-border-right: none;
-=======
 nav ul li {
   margin: 0 10px;
 }
@@ -87,7 +58,6 @@ nav ul li {
 nav ul li a {
   color: black;
   text-decoration: none;
->>>>>>> Stashed changes
 }
 
 li a:hover {
@@ -104,17 +74,11 @@ li a:hover {
   <nav>
   <a href="/" ><img src="/images/logo.png" class="logo" alt="Logo"></a>
     <ul>
-<<<<<<< Updated upstream
-      <li><a href="/tft"><img src="images/logo.jpg" alt="logo" width="70px" height="70px"></a></li>
-      <li><a href="/create">Log In</a></li>
-      <li><a href="/kalender"><img src="images/kalender.png" alt="logo" width="70px" height="70px"></a></li>
-=======
     <li><a href="/">Training factory Tiel</a></li>
       <li><a href="/lessen">Lessen</a></li>
       <li><a href="/rooster">Rooster</a></li>
       <li><a href="/profiel">Profiel</a></li>
       <li><a href="/logout">Logout</a></li>
->>>>>>> Stashed changes
     </ul>
   </nav>
       ';?>
