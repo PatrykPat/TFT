@@ -9,7 +9,7 @@
 <body>
   <main>
     <section class="hero">
-      <h1>Welcome to our Sporty Website</h1>
+      <h1>Welcome to our Sporty Website.</h1>
       <p>Join our gym and get fit today!</p>
       <button>Join Now</button>
     </section>
