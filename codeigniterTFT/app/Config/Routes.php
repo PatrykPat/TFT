@@ -45,6 +45,7 @@ $routes->get('/lessen', [tftController::class, 'lessen']);
 $routes->get('/rooster', [tftController::class, 'rooster']);
 $routes->get('/contact', [tftController::class, 'contact']);
 $routes->get('/admin', [tftController::class, 'admin']);
+$routes->get('/profiel', [tftController::class, 'profiel']);
 
 service('auth')->routes($routes);
 /*
