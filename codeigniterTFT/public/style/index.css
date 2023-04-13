@@ -48,7 +48,7 @@
     margin-bottom: 20px;
   }
   
-  .hero button {
+  .hero a {
     background-color: #FB8949;
     background-size: 50px 200px;
     color: rgb(0, 0, 0);
@@ -60,8 +60,8 @@
     font-size: 50px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin: 60px;
-    }
+    margin: 60px;    
+  }
     
     .hero button:hover {
     background-color: #FB8949;
@@ -95,76 +95,30 @@
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     }
     
-    .services {
-    margin-top: 50px;
+  table {
+    border-collapse: collapse;
+    width: 60%; 
+    margin-top: 400px;
+    margin: 0 auto; 
+    background-color: #FB8949;
+    border-radius: 18px;
+    margin: 50px auto 0;
+  }
+
+
+  th {
     text-align: center;
-    }
-    
-    .services h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
-    }
-    
-    .services ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    }
-    
-    .services li {
-    font-size: 24px;
-    margin-right: 20px;
-    margin-bottom: 20px;
-    }
-    
-    .contact {
-    margin-top: 50px;
-    text-align: center;
-    }
-    
-    .contact h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
-    }
-    
-    .contact form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    }
-    
-    .contact label {
-    font-size: 24px;
-    margin-bottom: 10px;
-    }
-    
-    .contact input,
-    .contact textarea {
-    width: 100%;
-    max-width: 400px;
-    margin-bottom: 20px;
-    padding: 10px;
-    font-size: 18px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    }
-    
-    .contact button {
-    background-color: orange;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    }
-    
-    .contact button:hover {
-    background-color: #ff6600;
-    }
+    background-color: #f2f2f2;
+    padding: 8px;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+  }
+
+ 
+  td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
 
     .circle {
     background: linear-gradient(127.42deg, #D9D9D9 8.93%, #13F5F5 8.94%, #0A8193 59.09%, #0C4E7C 91.38%, #083982 91.39%);

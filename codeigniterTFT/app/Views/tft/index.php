@@ -22,8 +22,8 @@
   top: 384px;">
   </div>
     <section class="hero">
-      <button>Mijn Account</button>
-      <button href="/contact">Over Ons</button>
+    <a href="<?php echo site_url('profiel'); ?>">Mijn account</a>
+      <a href="<?php echo site_url('contact'); ?>">Over Ons</a>
     </section>
     
 </body>

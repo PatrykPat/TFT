@@ -1,5 +1,5 @@
 <head>
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/style/create.css">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/style/index.css">
 </head>
 <style>
 
