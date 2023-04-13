@@ -1,10 +1,20 @@
-<head>
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/style/create.css">
-</head>
-<style>
+<?php if(auth()->user()->role == "klant"): 
+  echo '
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+    </ul>
+  </nav>';?>
+<?php endif; ?>
 
+
+<<<<<<< Updated upstream
   </style>
 <h2><?= esc($title) ?></h2>
+=======
+<form action="" method="post">
+<?= csrf_field() ?>
+>>>>>>> Stashed changes
 
 <?= session()->getFlashdata('error') ?>
 <?= validation_list_errors() ?>
@@ -33,6 +43,20 @@
     <option <?= set_value('tft') ?>>9</option>
     <option <?= set_value('tft') ?>>10</option>
   </select>
+<<<<<<< Updated upstream
+=======
+<br>
+  voer het aantal deelnemers toe<br>
+  <input value="<?= set_value('deelnemers') ?>" type="number" max="20" name="" />
+  <br>
+  Instructeur naam:
+  <input name="body" value='<?php echo (auth()->user()->username) ?>' disabled><br>
+  Kies een Datum:
+  <input type="date"><br>
+  En een tijdstip:
+  <input type="time">
+  <br>
+>>>>>>> Stashed changes
 
   <img src="<?php echo base_url('images/ja.jpg'); ?>" alt=""/>
 
