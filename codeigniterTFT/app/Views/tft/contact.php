@@ -11,5 +11,7 @@
     <img src="/images/info.jpg"></img>
     <p>Onze gym in tiel is een van de gyms ooit. We hebben sommige van de machines ooit. <br>
     Wij zijn trots op onze status als een van de gyms in Nederland, wan met ons team van sommige van de mensen ooit kunnen we alles aan.</p>
+
+    <div class="border"></div>
 </body>
 </html>
