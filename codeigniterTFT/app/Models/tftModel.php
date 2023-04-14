@@ -3,10 +3,52 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
+class lessenModel extends Model{
+    protected $table = 'lessen';
+    protected $allowedFields = ['id','idLessen', 'tijd','datum', 'maxdeelnemers', 'instructeur', 'SoortenLessen', 'maxdeelnemers'];
 
+}
+class usersModel extends Model{
+    public function getUsers()
+    {
+        $user = auth()->user();
+        $db = db_connect();
+        $query = "SELECT u.*, a.secret FROM `users` u JOIN `auth_identities` a ON u.id = a.user_id";
+        $selection =$db->query($query);
+        return $selection->getResult();
+    }
+
+    public function updateUser($userId, $newUsername, $secret,) {
+        $this->db->table('users')
+                 ->where('id', $userId)
+                 ->update([
+                     'username' => $newUsername,
+                     'secret' => $secret,
+                 ]);
+                 return $this->db->affectedRows() > 0;
+    }
+    
+    public function updateRole($userId, $newRole) 
+    {
+        $userModel = new tftModel();
+        $user = $userModel->find($userId);
+        $user->role = $newRole;
+        $userModel->save($user);
+        var_dump($userId);
+        var_dump($newRole);
+        return $this->update($userId, ['role' => $newRole]);
+        
+    }
+
+
+}
+class soortlesModel extends Model{
+
+}
 class tftModel extends Model
 {
     protected $table = 'lessen';
+<<<<<<< Updated upstream
     protected $allowedFields = ['idLessen', 'tijd','datum', 'maxdeelnemers', 'instructeur', 'SoortenLessen', 'maxdeelnemers'];
 
     public function gettft()
@@ -20,30 +62,36 @@ class tftModel extends Model
         return $selection->getResult();
     }
     public function getlessen()
+=======
+    protected $allowedFields = ['id','idLessen', 'tijd','datum', 'maxdeelnemers', 'instructeur', 'SoortenLessen', 'maxdeelnemers'];
+    public function get_rooster()
+>>>>>>> Stashed changes
     {
         $user = auth()->user();
         $db = db_connect();
         $sql = "SELECT * FROM `lessen` ORDER BY datum ASC;";
-
         $selection =$db->query($sql);
 
         return $selection->getResult();
     }
+
     public function get_lessen()
     {
         $user = auth()->user();
         $db = db_connect();
         $sql = "SELECT * FROM `lessen` ORDER BY datum ASC;";
-
         $selection =$db->query($sql);
+<<<<<<< Updated upstream
         var_dump($sql);
         var_dump($selection);
+=======
+>>>>>>> Stashed changes
 
         return $selection->getResult();
-        
     }
     protected $tftModel;
 
+<<<<<<< Updated upstream
     // public function __construct()
     // {
     //     // $this->config->set_item('csrf_protection', false);
@@ -52,6 +100,58 @@ class tftModel extends Model
     // }
    
     public function index()
+=======
+    public function getById($id)
+    {
+        return $this->find($id);
+    }
+    
+    public function gettft($slug = false)
+    {
+     if ($slug === false) {
+        return $this->findAll();
+     }
+
+     return $this->where(['mood' => $slug])->first();
+    }
+
+    public function getEmail()
+    {
+        $user = auth()->user();
+        $db = db_connect();
+    
+        $sql = "SELECT `secret` FROM `auth_identities` WHERE `user_id` = ? ORDER BY `id` ASC;";
+        $selection = $db->query($sql, [$user->id]);
+        $result = $selection->getResult();
+    
+        if (count($result) > 0) {
+            return $result[0]->secret;
+        }
+    
+        // return null;
+    }
+    
+    public function getUsers()
+    {
+        $user = auth()->user();
+        $db = db_connect();
+        $query = "SELECT u.*, a.secret FROM `users` u JOIN `auth_identities` a ON u.id = a.user_id";
+        $selection =$db->query($query);
+        return $selection->getResult();
+    }
+
+    public function updateUser($userId, $newUsername, $secret,) {
+        $this->db->table('users')
+                 ->where('id', $userId)
+                 ->update([
+                     'username' => $newUsername,
+                     'secret' => $secret,
+                 ]);
+                 return $this->db->affectedRows() > 0;
+    }
+    
+    public function updateRole($userId, $newRole) 
+>>>>>>> Stashed changes
     {
         
         $model = model(tftModel::class);

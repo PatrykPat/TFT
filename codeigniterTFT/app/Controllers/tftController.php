@@ -4,7 +4,15 @@ namespace App\Controllers;
 
 
 use CodeIgniter\Exceptions\PageNotFoundException;
+<<<<<<< Updated upstream
 use App\Models\NewsModel;
+=======
+use App\Models\tftModel;
+use App\Models\lessenModel;
+use App\Models\usersModel;
+use App\Models\soortlesModelModel;
+use CodeIgniter\Controller;
+>>>>>>> Stashed changes
 
 class tftController extends BaseController
 {
@@ -155,22 +163,14 @@ public function profiel()
     {
         $user = auth()->user();
         $userId = $user ? $user->id : null;
-        // Debug
-        // echo 'User ID: ' . $userId;
         $model = model(tftModel::class);
         $user = $model->find($userId);
         if (!$user) {
-            throw new PageNotFoundException('User not found');
-        }
-        // return $user;
-
+            throw new PageNotFoundException('User not found');}
         $data = [
             'user' => $user,
             'auth_email' => $model->getEmail(),
         ];
-        // var_dump($data);
-
-
         return view('templates/header', $data)
         .view ('tft/profiel')
         .view('templates/footer');

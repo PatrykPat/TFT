@@ -1,5 +1,4 @@
 <h1>Edit uw Profiel hier</h1>
-
 <?php if (session()->has('success')): ?>
     <p><?= session('success') ?></p>
 <?php endif ?>
@@ -10,7 +9,7 @@
 ?>
 
 <label for="username">Username:</label>
-<input type="text" name="username" value="<?= $user['username'] ?>">
+<input type="text" name="username" value="<?= $user->username ?>">
 <?php if (isset($validation) && $validation->getError('username')): ?>
     <p><?= $validation->getError('username') ?></p>
 <?php endif ?>
