@@ -64,6 +64,14 @@ class tftController extends BaseController
         . view('templates/footer');
     }
 
+    public function profiel(){
+        $model = model(tftModel::class);
+    return view('templates/header')
+        . view('tft/profiel')
+        . view('templates/footer');
+    }
+
+
     public function rooster()
 {
     $db = \Config\Database::connect();
@@ -81,7 +89,7 @@ class tftController extends BaseController
     for ($i = 0; $i < 7; $i++) {
         $date_array[] = date('Y-m-d', strtotime('+' . $i . ' days', $first_day_of_week));
     }
-
+    
     // Fetch data from the database
     $rooster = $this->db->query("SELECT * FROM lessen")->getResult();
 
@@ -132,3 +140,5 @@ class tftController extends BaseController
         
     }
 }
+
+

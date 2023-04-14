@@ -35,8 +35,6 @@ class tftModel extends Model
         $sql = "SELECT * FROM `lessen` ORDER BY datum ASC;";
 
         $selection =$db->query($sql);
-        var_dump($sql);
-        var_dump($selection);
 
         return $selection->getResult();
         
