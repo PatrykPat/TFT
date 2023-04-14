@@ -8,13 +8,8 @@
 <?php endif; ?>
 
 
-<<<<<<< Updated upstream
-  </style>
-<h2><?= esc($title) ?></h2>
-=======
 <form action="" method="post">
 <?= csrf_field() ?>
->>>>>>> Stashed changes
 
 <?= session()->getFlashdata('error') ?>
 <?= validation_list_errors() ?>

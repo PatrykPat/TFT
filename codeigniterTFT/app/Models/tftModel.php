@@ -29,8 +29,6 @@ class tftModel extends Model
 
         return $selection->getResult();
     }
-<<<<<<< Updated upstream
-=======
     public function get_lessen()
     {
         $user = auth()->user();
@@ -230,5 +228,4 @@ class tftModel extends Model
 		'geboortedatum'		=> $this->request->getPost('geboortedatum'),
         ]; }
 
->>>>>>> Stashed changes
 }

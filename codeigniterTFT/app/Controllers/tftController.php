@@ -49,18 +49,6 @@ class tftController extends BaseController
         . view('tft/contact')
         . view('templates/footer');
     }
-<<<<<<< Updated upstream
-    public function kalender(){
-
-        $model = model(tftModel::class);
-
-        $data = [
-            'lessen' => $model->getlessen()
-        ];
-    return view('templates/header', $data)
-        . view('tft/kalender')
-        . view('templates/footer');
-=======
     public function rooster()
     {
         $model = model(tftModel::class);
@@ -237,7 +225,6 @@ public function profiel()
         // Redirect back to the create page
         return redirect()->to('/create');
         
->>>>>>> Stashed changes
     }
 
     // public function updateRole()
