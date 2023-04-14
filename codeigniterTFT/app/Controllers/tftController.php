@@ -23,21 +23,10 @@ class tftController extends BaseController
             . view('tft/index')
             . view('templates/footer'); 
     }
-    public function admin() {
-        $model = model(tftModel::class);    
+    
+    public function lessen(){
 
-        $data = [
-            'users' => $model->getUsers(),
-            //'lessen' => $model->getEmail()
-        ];
 
-        return view('templates/header', $data)
-        .view ('tft/admin')
-        .view('templates/footer');
-    }
-
-    public function lessen()
-{
     $model = model(tftModel::class);
 
     // Retrieve data from the "soortlessen" table using Query Builder
@@ -69,18 +58,104 @@ class tftController extends BaseController
         . view('tft/contact')
         . view('templates/footer');
     }
-
-    public function profiel(){
+    public function getUser()
+    {
+        
+        // Get the current user's ID from the session
+        $userId = session('user_id');
+        // $user_id = session('user_id');
+        // echo 'User ID: ' . $userId;
+        
+        // Load the user's data from the database
+        $userModel = new tftModel();
+        $user = $userModel->find($userId);
+        if (!$user) {
+            throw new PageNotFoundException('User not found');
+        }
+        return $user;
+    }
+    public function profiel()
+    {
+        $user = auth()->user();
+        $userId = $user ? $user->id : null;
+        // Debug
+        // echo 'User ID: ' . $userId;
         $model = model(tftModel::class);
-    return view('templates/header')
-        . view('tft/profiel')
-        . view('templates/footer');
+        $user = $model->find($userId);
+        if (!$user) {
+            throw new PageNotFoundException('User not found');
+        }
+        // return $user;
+
+        $data = [
+            'user' => $user,
+            'auth_email' => $model->getEmail(),
+        ];
+        // var_dump($data);
+
+
+        return view('templates/header', $data)
+        .view ('tft/profiel')
+        .view('templates/footer');
+
+    }
+    public function admin() {
+        $model = model(tftModel::class); 
+        $user = $model->getUsers(session()->get('user_id'));   
+
+        $data = [
+            'users' => $user,
+            // 'auth_identities' => $model->getEmail(),
+        ];
+
+        return view('templates/header', $data)
+        .view ('tft/admin')
+        .view('templates/footer');
     }
 
+    public function updateRole()
+    {
+        if($_POST && isset($_POST['role'])) {
+            foreach($_POST['role'] as $userId => $role) {
+                switch($role) {
+                    case 'klant':
+                        $newRole = 'klant';
+                        break;
+                    case 'instructeur':
+                        $newRole = 'instructeur';
+                        break;
+                    case 'admin':
+                        $newRole = 'admin';
+                        break;
+                    default:
+                        // handle invalid role value
+                        break;
+                }
+               
+                echo "userId: " . $userId . "<br>";
+                echo "role: " . $role . "<br>";
+                $this->tftModel = new tftModel();
+            }
+        }
+    }
+    public function updateProfiel()
+    {
+        $user = auth()->user();
+        $model = new tftModel();
+        $data = [
+		'username'	=> $this->request->getPost('username'),
+        'secret'	=> $this->request->getPost('email'),
+        ]; 
+        $model->updateUser($user->id, $data['username']);
+
+        var_dump($data);
+    }
+    
 
     public function rooster()
 {
     $db = \Config\Database::connect();
+    $this->db = \Config\Database::connect();
     $query = $db->query('SELECT * FROM lessen');
     $rooster = $query->getResult();
     // Get the current week and year
@@ -100,13 +175,12 @@ class tftController extends BaseController
     $rooster = $this->db->query("SELECT * FROM lessen")->getResult();
 
     // Pass the data and date array to the view
-    return view('templates/header')
-        . view('tft/rooster')
-        . view('templates/footer');
     return view('templates/header', [
         'rooster' => $rooster,
         'date_array' => $date_array,
-    ]);
+    ])
+        . view('tft/rooster')
+        . view('templates/footer');
 }
         
     public function create()
