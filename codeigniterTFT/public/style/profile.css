@@ -1,0 +1,27 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 16px;
+  background-image:
+  linear-gradient(to right, rgba(119, 83, 221, 0.52), rgba(255, 255, 255, 0)),
+  url('/images/account.jpg');
+  height: 400px;
+  background-size: cover;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.account {
+  background-color: aqua;
+  border-radius: 18px;
+  box-shadow: 12px 12px;
+  font-size: 12px;
+}

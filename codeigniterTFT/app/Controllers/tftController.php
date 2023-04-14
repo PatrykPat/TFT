@@ -4,7 +4,8 @@ namespace App\Controllers;
 
 
 use CodeIgniter\Exceptions\PageNotFoundException;
-use App\Models\NewsModel;
+use App\Models\tftModel;
+use CodeIgniter\Controller;
 
 class tftController extends BaseController
 {
@@ -34,18 +35,23 @@ class tftController extends BaseController
         .view ('tft/admin')
         .view('templates/footer');
     }
-    
-    public function lessen(){
 
-        $model = model(tftModel::class);
+    public function lessen()
+{
+    $model = model(tftModel::class);
 
-        $data = [
-            'lessen' => $model->get_lessen()
-        ];
-    return view('templates/header', $data)
-        . view('tft/lessen')
+    // Retrieve data from the "soortlessen" table using Query Builder
+    $data['result'] = $model->db->table('soortles')->select('naam')->get()->getResult();
+
+    // Load the "lessen.php" view with the header and footer and pass the data to it
+    return view('templates/header')
+        . view('tft/lessen', $data)
         . view('templates/footer');
-    }
+}
+
+    
+    
+
     public function shop(){
 
         $model = model(tftModel::class);

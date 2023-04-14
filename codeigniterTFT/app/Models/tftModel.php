@@ -38,6 +38,6 @@ class tftModel extends Model
 
         return $selection->getResult();
         
-    } 
-
+    }
+   
 }
