@@ -4,7 +4,8 @@ namespace App\Controllers;
 
 
 use CodeIgniter\Exceptions\PageNotFoundException;
-use App\Models\NewsModel;
+use App\Models\tftModel;
+use CodeIgniter\Controller;
 
 class tftController extends BaseController
 {
@@ -25,15 +26,21 @@ class tftController extends BaseController
     
     public function lessen(){
 
-        $model = model(tftModel::class);
 
-        $data = [
-            'lessen' => $model->get_lessen()
-        ];
-    return view('templates/header', $data)
-        . view('tft/lessen')
+    $model = model(tftModel::class);
+
+    // Retrieve data from the "soortlessen" table using Query Builder
+    $data['result'] = $model->db->table('soortles')->select('naam')->get()->getResult();
+
+    // Load the "lessen.php" view with the header and footer and pass the data to it
+    return view('templates/header')
+        . view('tft/lessen', $data)
         . view('templates/footer');
-    }
+}
+
+    
+    
+
     public function shop(){
 
         $model = model(tftModel::class);
@@ -163,7 +170,7 @@ class tftController extends BaseController
     for ($i = 0; $i < 7; $i++) {
         $date_array[] = date('Y-m-d', strtotime('+' . $i . ' days', $first_day_of_week));
     }
-
+    
     // Fetch data from the database
     $rooster = $this->db->query("SELECT * FROM lessen")->getResult();
 
@@ -213,3 +220,5 @@ class tftController extends BaseController
         
     }
 }
+
+
