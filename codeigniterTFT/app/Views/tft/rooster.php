@@ -47,7 +47,7 @@ for ($i = 0; $i < 7; $i++) {
             <th><?php echo date('Y-m-d', strtotime($date)); ?></th>
         <?php endforeach; ?>
     </tr>
-    <?php for ($i = 0; $i <= 23; $i++): ?>
+    <?php for ($i = 9; $i <= 19; $i++): ?>
         <tr>
             <td><?php echo $i.':00'; ?></td>
             <?php for ($j = 0; $j < 7; $j++): ?>
